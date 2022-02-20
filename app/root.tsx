@@ -1,9 +1,9 @@
+import React from "react"
 import PropTypes from "prop-types"
 import NProgress from "nprogress"
 import nProgressStyles from "nprogress/nprogress.css"
-import picoCss from "@picocss/pico/css/pico.min.css"
-import rootStyle from "./root.css"
-import React from "react"
+import styles from "./styles/app.css"
+import type { MetaFunction } from "remix"
 import {
 	Link,
 	Links,
@@ -18,17 +18,21 @@ import {
 
 export const links = () => {
 	return [
-		{ rel: "stylesheet", href: rootStyle },
+		{ rel: "stylesheet", href: styles },
 		{ rel: "stylesheet", href: nProgressStyles },
-		{ rel: "stylesheet", href: picoCss }
 	]
 }
 
-export function meta() {
+export const meta: MetaFunction = () => {
 	return { title: "Unikey - Bàn phím tiếng Việt" }
 }
 
-function Document({ children, title }) {
+interface DocumentProps {
+	children: React.ReactNode
+	title?: string
+}
+
+function Document({ children, title }: DocumentProps) {
 	const transition = useTransition()
 
 	React.useEffect(() => {
@@ -49,12 +53,12 @@ function Document({ children, title }) {
 				<Links />
 			</head>
 			<body>
-				<div className="container full-h">
-					<nav>
-						<ul>
-							<li><a href="/" alt="Go to homepage"><strong>UniKey</strong></a></li>
+				<div className="flex flex-col min-h-screen w-full justify-center bg-blue-100">
+					<nav className="container flex bg-zinc-50">
+						<ul className="bg-zinc-100">
+							<li><a href="/"><strong>UniKey</strong></a></li>
 						</ul>
-						<ul>
+						<ul className="flex flex-1 bg-zinc-200">
 							<li><Link to="/about">Giới thiệu</Link></li>
 							<li><Link to="/download">Download</Link></li>
 							<li><Link to="/blog">Blog</Link></li>
@@ -65,13 +69,13 @@ function Document({ children, title }) {
 						</ul>
 					</nav>
 
-					<main>
+					<main className="container mb-20">
 
 						{children}
 
 					</main>
 
-					<footer>
+					<footer className="container mt-auto p-6 bg-slate-300">
 						<small>© 2021 Pham Kim Long.</small>
 					</footer>
 				</div>
@@ -79,7 +83,7 @@ function Document({ children, title }) {
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
-			</body>
+			</body >
 		</html >
 	)
 }
@@ -111,7 +115,7 @@ export function CatchBoundary() {
 	)
 }
 
-export function ErrorBoundary({ error }) {
+export function ErrorBoundary({ error }: { error: Error }) {
 	console.error(error)
 
 	return (
