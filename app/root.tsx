@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import NProgress from "nprogress"
 import nProgressStyles from "nprogress/nprogress.css"
 import styles from "./styles/app.css"
-import type { MetaFunction } from "remix"
+import { MetaFunction, NavLink } from "remix"
 import {
 	Link,
 	Links,
@@ -32,6 +32,15 @@ interface DocumentProps {
 	title?: string
 }
 
+const menuItems = [
+	{ to: "/about", text: "Giới thiệu" },
+	{ to: "/blog", text: "Blog" },
+	{ to: "/linux", text: "Linux" },
+	{ to: "/apple", text: "Apple" },
+	{ to: "/support", text: "Trợ giúp" },
+	{ to: "/source", text: "Mã nguồn" }
+]
+
 function Document({ children, title }: DocumentProps) {
 	const transition = useTransition()
 
@@ -53,32 +62,34 @@ function Document({ children, title }: DocumentProps) {
 				<Links />
 			</head>
 			<body>
-				<div className="flex flex-col min-h-screen w-full justify-center bg-blue-100">
-					<nav className="container flex bg-zinc-50">
-						<ul className="bg-zinc-100">
-							<li><a href="/"><strong>UniKey</strong></a></li>
+				<nav className="bg-zinc-100 py-10">
+					<div className="container max-w-screen-lg flex justify-between mx-auto">
+						<div className="">
+							<a href="/"><strong>UniKey</strong></a>
+						</div>
+						<ul className="flex space-x-8">
+							{menuItems.map(menuItem => {
+								return (
+									<li key={menuItem.to}>
+										<NavLink to={menuItem.to}>{menuItem.text}</NavLink>
+									</li>
+								)
+							})}
 						</ul>
-						<ul className="flex flex-1 bg-zinc-200">
-							<li><Link to="/about">Giới thiệu</Link></li>
-							<li><Link to="/download">Download</Link></li>
-							<li><Link to="/blog">Blog</Link></li>
-							<li><Link to="/linux">Linux</Link></li>
-							<li><Link to="/apple">Apple</Link></li>
-							<li><Link to="/support">Trợ giúp</Link></li>
-							<li><Link to="/source">Mã nguồn</Link></li>
-						</ul>
-					</nav>
+					</div>
+				</nav>
 
-					<main className="container mb-20">
+				<main className="mb-20">
+					<div className="container max-w-screen-md mx-auto">
 
 						{children}
+					</div>
 
-					</main>
+				</main>
 
-					<footer className="container mt-auto p-6 bg-slate-300">
-						<small>© 2021 Pham Kim Long.</small>
-					</footer>
-				</div>
+				<footer className="mt-auto p-6 bg-slate-500">
+					<div className="container max-w-screen-lg mx-auto text-white">© 2021 Pham Kim Long.</div>
+				</footer>
 
 				<ScrollRestoration />
 				<Scripts />

@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+	body {
+		margin: 0;
+		padding: 0;
+		@apply text-lg
+	}
+	
 	h1 {
 		@apply text-4xl font-bold my-8
 	}
@@ -20,6 +26,10 @@
 	}
 
 	p {
-		@apply my-2 leading-relaxed
+		@apply my-2 leading-relaxed text-justify
+	}
+
+	a {
+		@apply text-blue-500 hover:underline 
 	}
 }
