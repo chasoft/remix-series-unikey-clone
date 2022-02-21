@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
 	body {
 		margin: 0;
 		padding: 0;
@@ -32,4 +32,4 @@
 	a {
 		@apply text-blue-500 hover:underline 
 	}
-}
+} */

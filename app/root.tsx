@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import NProgress from "nprogress"
 import nProgressStyles from "nprogress/nprogress.css"
 import styles from "./styles/app.css"
-import { MetaFunction, NavLink } from "remix"
+import { MetaFunction, NavLink, useMatches } from "remix"
 import {
 	Link,
 	Links,
@@ -15,6 +15,8 @@ import {
 	useCatch,
 	useTransition,
 } from "remix"
+
+import { motion } from "framer-motion"
 
 export const links = () => {
 	return [
@@ -41,8 +43,11 @@ const menuItems = [
 	{ to: "/source", text: "Mã nguồn" }
 ]
 
+const activeNavLinkStyle = " text-red-500 "
+
 function Document({ children, title }: DocumentProps) {
 	const transition = useTransition()
+	const matches = useMatches()
 
 	React.useEffect(() => {
 		// when the state is idle then we can to complete the progress bar
@@ -62,34 +67,40 @@ function Document({ children, title }: DocumentProps) {
 				<Links />
 			</head>
 			<body>
-				<nav className="bg-zinc-100 py-10">
-					<div className="container max-w-screen-lg flex justify-between mx-auto">
-						<div className="">
-							<a href="/"><strong>UniKey</strong></a>
+				<div className="flex flex-col min-w-full min-h-screen">
+					<nav className="py-10 px-10 bg-zinc-100">
+						<div className="container flex justify-between max-w-screen-lg mx-auto">
+							<div className="pr-10">
+								<a href="/" className="hover:no-underline"><strong>UniKey</strong></a>
+							</div>
+							<div className="flex overflow-hidden">
+								{menuItems.map(menuItem => {
+									return (
+										<NavLink
+											key={menuItem.to}
+											to={menuItem.to}
+											className={({ isActive }) =>
+												"border-b-4 border-transparent hover:border-b-4 hover:border-red-500 hover:no-underline py-1 mx-4 font-semibold box-content whitespace-nowrap" + (isActive ? activeNavLinkStyle : "")
+											}
+										>
+											{menuItem.text}
+										</NavLink>
+									)
+								})}
+							</div>
 						</div>
-						<ul className="flex space-x-8">
-							{menuItems.map(menuItem => {
-								return (
-									<li key={menuItem.to}>
-										<NavLink to={menuItem.to}>{menuItem.text}</NavLink>
-									</li>
-								)
-							})}
-						</ul>
-					</div>
-				</nav>
+					</nav>
 
-				<main className="mb-20">
-					<div className="container max-w-screen-md mx-auto">
+					<main className="mb-20">
+						<div className="container px-10 max-w-screen-md mx-auto my-10">
+							{children}
+						</div>
+					</main>
 
-						{children}
-					</div>
-
-				</main>
-
-				<footer className="mt-auto p-6 bg-slate-500">
-					<div className="container max-w-screen-lg mx-auto text-white">© 2021 Pham Kim Long.</div>
-				</footer>
+					<footer className="p-6 mt-auto bg-slate-500">
+						<div className="container px-10 max-w-screen-lg mx-auto text-white">© 2021 Pham Kim Long.</div>
+					</footer>
+				</div>
 
 				<ScrollRestoration />
 				<Scripts />

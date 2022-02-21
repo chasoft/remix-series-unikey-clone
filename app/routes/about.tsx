@@ -1,12 +1,18 @@
 
 import React from "react"
 import { Link, useLoaderData } from "remix"
-import type { LoaderFunction } from "remix"
+import type { LoaderFunction, MetaFunction } from "remix"
 import getPageData from "~/utils/getPageData"
 import { about_mdx } from "~/content/about.md.js"
+import { motion } from "framer-motion"
+import { pageMotion } from "~/utils/motionVariants"
 
 export const handle = {
-	mainPages: () => <Link to="/about">Giới thiệu</Link>
+	breadcrumb: () => <Link to="/about"></Link>
+}
+
+export const meta: MetaFunction = () => {
+	return { title: "Giới thiệu Unikey | Unikey" }
 }
 
 export const loader: LoaderFunction = () => {
@@ -16,6 +22,8 @@ export const loader: LoaderFunction = () => {
 export default function AboutPage() {
 	const { attributes, html } = useLoaderData()
 	return (
-		<div dangerouslySetInnerHTML={{ __html: html }} />
+		<motion.div variants={pageMotion} initial="hidden" animate="visible">
+			<div className="prose max-w-screen-lg" dangerouslySetInnerHTML={{ __html: html }} />
+		</motion.div>
 	)
 }
