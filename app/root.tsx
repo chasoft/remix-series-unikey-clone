@@ -68,7 +68,7 @@ function Document({ children, title }: DocumentProps) {
 			</head>
 			<body>
 				<div className="flex flex-col min-w-full min-h-screen">
-					<nav className="py-10 px-10 bg-zinc-100">
+					<nav className="px-10 py-10 bg-zinc-100">
 						<div className="container flex justify-between max-w-screen-lg mx-auto">
 							<div className="pr-10">
 								<a href="/" className="hover:no-underline"><strong>UniKey</strong></a>
@@ -92,13 +92,13 @@ function Document({ children, title }: DocumentProps) {
 					</nav>
 
 					<main className="mb-20">
-						<div className="container px-10 max-w-screen-md mx-auto my-10">
+						<div className="container max-w-screen-lg px-10 mx-auto my-10">
 							{children}
 						</div>
 					</main>
 
 					<footer className="p-6 mt-auto bg-slate-500">
-						<div className="container px-10 max-w-screen-lg mx-auto text-white">© 2021 Pham Kim Long.</div>
+						<div className="container max-w-screen-lg px-10 mx-auto text-white">© 2021 Pham Kim Long.</div>
 					</footer>
 				</div>
 
