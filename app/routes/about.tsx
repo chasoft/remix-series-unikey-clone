@@ -2,8 +2,9 @@
 import React from "react"
 import { Link, useLoaderData } from "remix"
 import type { LoaderFunction, MetaFunction } from "remix"
-import getPageData from "~/utils/getPageData"
-import { about_mdx } from "~/content/about.md.js"
+// import getPageData from "~/utils/getPageData"
+// import Component, { attributes } from '~/content/about.md';
+import Component, { attributes } from "~/content/about.mdx";
 import { motion } from "framer-motion"
 import { pageMotion } from "~/utils/motionVariants"
 
@@ -15,15 +16,21 @@ export const meta: MetaFunction = () => {
 	return { title: "Giới thiệu Unikey | Unikey" }
 }
 
-export const loader: LoaderFunction = () => {
-	return getPageData(about_mdx)
-}
+// function getPageData() {
+// 	return [postA.attributes, postA.default]
+// }
+
+// export const loader: LoaderFunction = () => {
+// 	return getPageData()
+// }
 
 export default function AboutPage() {
-	const { attributes, html } = useLoaderData()
 	return (
 		<motion.div variants={pageMotion} initial="hidden" animate="visible">
-			<div className="prose max-w-screen-lg" dangerouslySetInnerHTML={{ __html: html }} />
+			{/* <div className="max-w-screen-lg prose" dangerouslySetInnerHTML={{ __html: html }} /> */}
+			<div className="prose">
+				<Component />
+			</div>
 		</motion.div>
 	)
 }
