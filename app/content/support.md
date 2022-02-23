@@ -1,4 +1,4 @@
-export const support_mdx = `---
+---
 title: Trợ giúp
 ---
 # Trợ giúp
@@ -32,4 +32,3 @@ Dưới đây là các bộ font chữ cũ, ra đời từ trước khi có các
 [TCVN-ABC fonts (2.5 MB)](/)
 
 [VNI fonts (300 KB)](/)
-`

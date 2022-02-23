@@ -1,4 +1,4 @@
-export const download_mdx = `---
+---
 title: Download UniKey
 ---
 # Download UniKey
@@ -29,5 +29,3 @@ UVConverter có các phiên bản dành cho Windows và Linux.
 
 [UVConverter 1.1.3b for Windows (12 KB)](/).
 [UVConverter for Linux](/)
-
-`

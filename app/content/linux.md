@@ -1,4 +1,4 @@
-export const linux_mdx = `---
+---
 title: UniKey Software for Linux
 ---
 # UniKey Software for Linux
@@ -38,4 +38,3 @@ This HOWTO shows how Pine can be setup to read and write Vietnamese emails. One 
 * [Click here to read](/)
 
 All software in this page are released under the terms of the GNU General Public License.
-`

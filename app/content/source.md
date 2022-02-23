@@ -1,4 +1,4 @@
-export const source_mdx = `---
+---
 title: UniKey Source Code
 ---
 # UniKey Source Code
@@ -21,5 +21,3 @@ UVConverter is a universal command-line Vietnamese encoding converter that suppo
 
 * Tar.gz format (for Linux, Mac OS X): [UVConverter 1.1.3b](/)
 * Zip format (for Windows): [UVConverter 1.1.3b](/)
-
-`

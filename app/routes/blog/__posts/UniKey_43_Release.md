@@ -1,5 +1,8 @@
-export const md_2018_06_23 = `---
-title: blog1-blog-1blog
+---
+title: "UniKey 4.3 Release"
+description: "Phát hành bản 4.3 RC1 với những cập nhật quan trọng"
+slug: "UniKey-4.3-Release"
+date: "23 Jun 2018"
 ---
 ## UniKey 4.3 Release
 
@@ -10,8 +13,8 @@ Gắn chữ ký điện tử có chứng thực trong chương trình UniKeyNT.e
 * Sửa lỗi không gõ được tiếng Việt trong một số trang web trên trình duyệt Edge.
 * Sửa lỗi xóa bảng gõ tắt.
 * Cải tiến tính năng gõ tắt:
+
 	* Tăng kích thước tối đa bảng gõ tắt lên 8000 mục.
 	* Thêm tùy chọn bật/tắt tính năng tự động đổi chữ hoa/thường khi gõ tắt.
 
 [Download UniKey 4.3 RC1](/)
-`

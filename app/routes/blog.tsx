@@ -1,22 +1,27 @@
-import React from "react"
-import { Link, Outlet } from "remix"
-import type { MetaFunction } from "remix"
-import { motion } from "framer-motion"
-import { pageMotion } from "~/utils/motionVariants"
+/************************************************************************************************ */
 
-export const handle = {
-	breadcrumb: () => <Link to="/blog">Blog</Link>
-}
+import { json, Link, Outlet } from "remix"
+import type { LoaderFunction, MetaFunction } from "remix"
 
-export const meta: MetaFunction = () => {
+/* import components */
+import MotionPageWrapper from "~/components/MotionPageWrapper"
+
+/* import data */
+
+
+/************************************************************************************************ */
+
+export const meta: MetaFunction = ({ data }) => {
 	return { title: "Blog | Unikey" }
 }
 
+/************************************************************************************************ */
+
 export default function BlogPage() {
 	return (
-		<motion.div className="prose max-w-screen-lg" variants={pageMotion} initial="hidden" animate="visible">
+		<MotionPageWrapper>
 			<Link to="/blog"><h1 className="no-underline">Blog</h1></Link>
 			<Outlet />
-		</motion.div>
+		</MotionPageWrapper>
 	)
 }

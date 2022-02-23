@@ -1,25 +1,30 @@
+/************************************************************************************************ */
 
-import React from "react"
-import { Link, useLoaderData } from "remix"
-import type { LoaderFunction } from "remix"
-import getPageData from "~/utils/getPageData"
-import { index_mdx } from "~/content/index.md.js"
-import { motion } from "framer-motion"
-import { pageMotion } from "~/utils/motionVariants"
+import { json } from "remix"
+import type { LoaderFunction, MetaFunction } from "remix"
 
-export const handle = {
-	breadcrumb: () => <Link to="/">Trang chủ</Link>
+/* import components */
+import MotionPageWrapper from "~/components/MotionPageWrapper"
+
+/* import data */
+import Component, { attributes } from "~/content/index.md"
+
+/************************************************************************************************ */
+
+export const meta: MetaFunction = ({ data }) => {
+	return { title: `${data.title} | Unikey"` }
 }
 
-export const loader: LoaderFunction = () => {
-	return getPageData(index_mdx)
+export const loader: LoaderFunction = async ({ params }) => {
+	return json({ title: attributes.title })
 }
+
+/************************************************************************************************ */
 
 export default function Index() {
-	const { attributes, html } = useLoaderData()
 	return (
-		<motion.div variants={pageMotion} initial="hidden" animate="visible">
-			<div className="prose max-w-screen-lg prose-a:no-underline prose-a:text-blue-600 hover:prose-a:underline" dangerouslySetInnerHTML={{ __html: html }} />
-		</motion.div>
+		<MotionPageWrapper>
+			<Component />
+		</MotionPageWrapper>
 	)
 }

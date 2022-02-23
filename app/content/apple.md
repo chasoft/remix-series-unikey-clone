@@ -1,4 +1,4 @@
-export const apple_mdx = `---
+---
 title: UniKey cho macOS và iOS
 ---
 # UniKey cho macOS và iOS
@@ -12,5 +12,3 @@ Bàn phím tiếng Việt trong macOS có tên Simple Telex sử dụng lõi **U
 Trong iOS, xác nhận của Apple về việc dùng UniKey có thể tìm thấy trong *Cài đặt - Cài đặt chung - Giới thiệu - Pháp lý - Thông báo pháp lý*
 
 ![iOS Legal Notice](/img/ios-legal.jpg)
-
-`

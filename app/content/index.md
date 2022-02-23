@@ -1,4 +1,4 @@
-export const index_mdx = `---
+---
 title: UniKey - Bàn phím tiếng Việt
 ---
 # UniKey - Bàn phím tiếng Việt
@@ -7,7 +7,7 @@ Unikey là chương trình bàn phím tiếng Việt phổ biến nhất trên W
 
 Unikey.org là website chính thức duy nhất của phần mềm UniKey. Tác giả không chịu trách nhiệm về tất cả các website khác lấy tên hoặc phân phối sản phẩm UniKey.
 
-## Tin tức
+## Tin tức ccc
 
 ---
 
@@ -54,5 +54,3 @@ UniKey hỗ trợ:
 * Chạy trên tất cả các phiên bản Windows: 10, 8, 7, Vista, 2000, XP, 9x.
 
 UniKey rất gọn nhẹ, không cần cài đặt.
-
-`

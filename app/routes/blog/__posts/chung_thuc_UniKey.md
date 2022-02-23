@@ -1,5 +1,8 @@
-export const md_2018_05_30 = `---
-title: blog1-blog-1blog
+---
+title: Chứng thực UniKey
+description: "Kể từ phiên bản 4.3 RC1, các bản release của UniKey được gắn chứng thực chữ ký số."
+slug: "chung-thuc-UniKey"
+date: "30 May 2018"
 ---
 ## Chứng thực UniKey
 
@@ -10,7 +13,7 @@ Chữ ký số sẽ giúp:
 * UniKey không bị hệ thống kiểm tra Windows Defender SmartScreen cảnh báo nhầm là phần mềm độc hại.
 * Bạn luôn có thể kiểm tra để có thể chắc chắn chương trình đúng là do tác giả Phạm Kim Long cung cấp và không bị thay đổi.
 
-##Cảnh báo SmartScreen của Windows Defender
+## Cảnh báo SmartScreen của Windows Defender
 
 Mặc dù UniKey đã được gắn chữ ký số, mỗi khi một phiên bản UniKey mới được công bố chưa lâu, bạn vẫn có thể gặp cảnh báo SmartScreen khi chạy UniKey như sau:
 
@@ -26,7 +29,7 @@ Nếu bạn thấy dòng chữ **Publisher: Unknown publisher** như dưới đ�
 
 ![smartscreen-unknown](/img/certificate/smartscreen-unknown.png)
 
-**Lưu ý**
+### Lưu ý
 
 Với mỗi bản UniKey có gắn chứng thực chữ ký số, sau khi có số lượt download đủ lớn, Windows sẽ ghi nhận và “nhớ” phiên bản sạch của UniKey và sẽ không hiện cảnh báo của SmartScreen như ở trên nữa (với điều kiện bản download là nguyên bản, không bị ai khác thay đổi). Nếu không gặp cảnh báo, các bạn có thể yên tâm sử dụng UniKey.
 
@@ -45,5 +48,3 @@ Với mỗi bản UniKey có gắn chứng thực chữ ký số, sau khi có s�
 * Bấm vào nút View Certificate:
 
 	![properties3](/img/certificate/properties-3.png)
-
-`

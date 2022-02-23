@@ -1,36 +1,30 @@
+/************************************************************************************************ */
 
-import React from "react"
-import { Link, useLoaderData } from "remix"
+import { json } from "remix"
 import type { LoaderFunction, MetaFunction } from "remix"
-// import getPageData from "~/utils/getPageData"
-// import Component, { attributes } from '~/content/about.md';
-import Component, { attributes } from "~/content/about.mdx";
-import { motion } from "framer-motion"
-import { pageMotion } from "~/utils/motionVariants"
 
-export const handle = {
-	breadcrumb: () => <Link to="/about"></Link>
+/* import components */
+import MotionPageWrapper from "~/components/MotionPageWrapper"
+
+/* import data */
+import Component, { attributes } from "~/content/about.md"
+
+/************************************************************************************************ */
+
+export const meta: MetaFunction = ({ data }) => {
+	return { title: `${data.title} | Unikey"` }
 }
 
-export const meta: MetaFunction = () => {
-	return { title: "Giới thiệu Unikey | Unikey" }
+export const loader: LoaderFunction = async ({ params }) => {
+	return json({ title: attributes.title })
 }
 
-// function getPageData() {
-// 	return [postA.attributes, postA.default]
-// }
-
-// export const loader: LoaderFunction = () => {
-// 	return getPageData()
-// }
+/************************************************************************************************ */
 
 export default function AboutPage() {
 	return (
-		<motion.div variants={pageMotion} initial="hidden" animate="visible">
-			{/* <div className="max-w-screen-lg prose" dangerouslySetInnerHTML={{ __html: html }} /> */}
-			<div className="prose">
-				<Component />
-			</div>
-		</motion.div>
+		<MotionPageWrapper>
+			<Component />
+		</MotionPageWrapper>
 	)
 }
