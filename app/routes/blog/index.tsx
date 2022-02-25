@@ -46,7 +46,7 @@ export default function BlogPage() {
 			<ul>
 				{blogPost.map(({ attributes, filename }) => (
 					<li>
-						<Link to={`/blog/${filename}`}>
+						<Link to={`/blog/${filename}`} rel="prefetch">
 							{attributes.title}
 						</Link>
 						<span className="block">{attributes.description}</span>

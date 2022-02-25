@@ -79,6 +79,7 @@ function Document({ children, title }: DocumentProps) {
 										<NavLink
 											key={menuItem.to}
 											to={menuItem.to}
+											rel="prefetch"
 											className={({ isActive }) =>
 												"border-b-4 border-transparent hover:border-b-4 hover:border-red-500 hover:no-underline py-1 mx-4 font-semibold box-content whitespace-nowrap" + (isActive ? activeNavLinkStyle : "")
 											}
